@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapicall.R
 import com.example.firstapicall.data.Repository
 import com.example.firstapicall.data.model.Song
+import com.squareup.picasso.Picasso
 
 class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
@@ -40,7 +41,7 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
         holder.name.text = item.track
         holder.artist.text = item.artist
-        holder.image.setImageURI(Uri.parse(item.artResource))
+        Picasso.get().load(item.artResource).into(holder.image)
             }
 
     override fun getItemCount(): Int {
