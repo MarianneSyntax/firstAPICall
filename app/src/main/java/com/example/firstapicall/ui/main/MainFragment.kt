@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.firstapicall.R
 import com.example.firstapicall.adapter.SongAdapter
 import com.example.firstapicall.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
-
 
 
     private lateinit var viewModel: MainViewModel
@@ -35,6 +35,20 @@ class MainFragment : Fragment() {
 
         val songAdapter = SongAdapter()
         binding.songRecycler.adapter = songAdapter
+
+        viewModel.songs.observe(viewLifecycleOwner) {
+            songAdapter.submitList(it)
+        }
+
+        binding.searchBtn.setOnClickListener {
+            val term = binding.homeSearchEdit.text.toString()
+            if (term != "") {
+                viewModel.search(term)
+            } else {
+                Toast.makeText(requireContext(), "invalid search", Toast.LENGTH_SHORT)
+            }
+        }
+
     }
 
 }
