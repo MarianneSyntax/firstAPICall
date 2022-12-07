@@ -1,5 +1,6 @@
 package com.example.firstapicall.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,7 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
         holder.name.text = item.track
         holder.artist.text = item.artist
+        holder.image.setImageURI(Uri.parse(item.artResource))
             }
 
     override fun getItemCount(): Int {
