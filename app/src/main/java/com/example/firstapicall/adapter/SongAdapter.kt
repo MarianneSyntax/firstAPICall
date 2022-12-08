@@ -10,7 +10,6 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapicall.R
-import com.example.firstapicall.data.Repository
 import com.example.firstapicall.data.model.Song
 import com.example.firstapicall.ui.main.MainFragmentDirections
 import coil.load
@@ -47,7 +46,7 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
         holder.image.load(item.artResource)
 
         holder.songCard.setOnClickListener {
-            holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSongDetailFragment(item.track,item.artist,item.artResource))
+            holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSongDetailFragment(item.trackId))
         }
     }
 

@@ -19,13 +19,7 @@
         android:name="com.example.firstapicall.ui.main.SongDetailFragment"
         android:label="SongDetailFragment" >
         <argument
-            android:name="title"
-            app:argType="string" />
-        <argument
-            android:name="artist"
-            app:argType="string" />
-        <argument
-            android:name="image"
-            app:argType="string" />
+            android:name="trackId"
+            app:argType="integer" />
     </fragment>
 </navigation>

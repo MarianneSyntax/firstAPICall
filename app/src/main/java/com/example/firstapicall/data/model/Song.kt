@@ -12,5 +12,8 @@ data class Song(
     val track: String,
 
     @Json(name = "artworkUrl100")
-    val artResource: String
+    val artResource: String,
+
+    @Json(name = "trackId")
+    val trackId: Int
 )
