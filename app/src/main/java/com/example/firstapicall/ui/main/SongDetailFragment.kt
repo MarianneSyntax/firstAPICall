@@ -38,6 +38,7 @@ class SongDetailFragment : Fragment() {
                 binding.songDetailTitle.text = song.track
                 binding.songDetailImg.load(song.artResource) {
                     error(R.drawable.ic_error)
+                    placeholder(R.drawable.ic_baseline_library_music_24)
                 }
             }
 

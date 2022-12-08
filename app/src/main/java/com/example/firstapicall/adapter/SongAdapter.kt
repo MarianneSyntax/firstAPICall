@@ -13,6 +13,7 @@ import com.example.firstapicall.R
 import com.example.firstapicall.data.model.Song
 import com.example.firstapicall.ui.main.MainFragmentDirections
 import coil.load
+import coil.transform.CircleCropTransformation
 
 
 class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
@@ -43,7 +44,10 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
         holder.name.text = item.track
         holder.artist.text = item.artist
-        holder.image.load(item.artResource)
+        holder.image.load(item.artResource){
+            //macht bild rund
+            //transformations(CircleCropTransformation())
+        }
 
         holder.songCard.setOnClickListener {
             holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSongDetailFragment(item.trackId))
