@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.firstapicall.R
 import com.example.firstapicall.databinding.FragmentMainBinding
 import com.example.firstapicall.databinding.FragmentSongDetailBinding
+import com.squareup.picasso.Picasso
 
 
 class SongDetailFragment : Fragment() {
@@ -25,6 +26,14 @@ class SongDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val title = requireArguments().getString("title")
+        val artist = requireArguments().getString("artist")
+        val image = requireArguments().getString("image")
+
+        binding.songDetailTitle.text = title
+        binding.songDetailArtist.text = artist
+        Picasso.get().load(image).into(binding.songDetailImg)
 
     }
 
