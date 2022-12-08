@@ -40,6 +40,20 @@ class MainFragment : Fragment() {
             songAdapter.submitList(it)
         }
 
+        viewModel.loading.observe(viewLifecycleOwner){
+            when(it){
+                ApiStatus.LOADING -> {
+                    binding.progressSpinner.visibility = View.VISIBLE
+                }
+                ApiStatus.DONE -> {
+                    binding.progressSpinner.visibility = View.INVISIBLE
+                }
+                ApiStatus.ERROR -> {
+                    binding.progressSpinner.visibility = View.GONE
+                }
+            }
+        }
+
         binding.searchBtn.setOnClickListener {
             val term = binding.homeSearchEdit.text.toString()
             if (term != "") {
