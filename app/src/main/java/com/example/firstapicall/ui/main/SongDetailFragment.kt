@@ -28,21 +28,16 @@ class SongDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val trackId = requireArguments().getInt("trackId")
+        val title = requireArguments().getString("title")
+        val artist = requireArguments().getString("artist")
+        val image = requireArguments().getString("image")
 
-        viewModel.songs.observe(viewLifecycleOwner){ songs ->
-            val song = songs.find { it.trackId == trackId }
+        binding.songDetailTitle.text = title
+        binding.songDetailArtist.text = artist
+        binding.songDetailImg.load(image)
 
-            if (song != null){
-                binding.songDetailArtist.text = song.artist
-                binding.songDetailTitle.text = song.track
-                binding.songDetailImg.load(song.artResource) {
-                    error(R.drawable.ic_error)
-                    placeholder(R.drawable.ic_baseline_library_music_24)
-                }
-            }
 
-        }
+
 
 
         binding.downloadBtn.setOnClickListener {
@@ -55,4 +50,4 @@ class SongDetailFragment : Fragment() {
 
     }
 
-    }
+}
