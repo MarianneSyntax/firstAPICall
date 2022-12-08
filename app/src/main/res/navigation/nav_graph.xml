@@ -9,5 +9,23 @@
         android:id="@+id/mainFragment"
         android:name="com.example.firstapicall.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.example.firstapicall.ui.main.SongDetailFragment"
+        android:label="SongDetailFragment" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="artist"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+    </fragment>
 </navigation>

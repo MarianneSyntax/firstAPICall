@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapicall.R
 import com.example.firstapicall.data.Repository
 import com.example.firstapicall.data.model.Song
+import com.example.firstapicall.ui.main.MainFragmentDirections
 import com.squareup.picasso.Picasso
 
 class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
@@ -42,7 +44,11 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
         holder.name.text = item.track
         holder.artist.text = item.artist
         Picasso.get().load(item.artResource).into(holder.image)
-            }
+
+        holder.songCard.setOnClickListener {
+            holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSongDetailFragment(item.track,item.artist,item.artResource))
+        }
+    }
 
     override fun getItemCount(): Int {
         return dataset.size
