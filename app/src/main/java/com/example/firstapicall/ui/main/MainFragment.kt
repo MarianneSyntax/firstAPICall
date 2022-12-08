@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
             if (term != "") {
                 viewModel.search(term)
             } else {
-                Toast.makeText(requireContext(), "invalid search", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "invalid search", Toast.LENGTH_SHORT).show()
             }
         }
 
