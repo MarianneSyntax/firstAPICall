@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.firstapicall.R
 import com.example.firstapicall.databinding.FragmentSongDetailBinding
 
 
@@ -35,7 +36,9 @@ class SongDetailFragment : Fragment() {
             if (song != null){
                 binding.songDetailArtist.text = song.artist
                 binding.songDetailTitle.text = song.track
-                binding.songDetailImg.load(song.artResource)
+                binding.songDetailImg.load(song.artResource) {
+                    error(R.drawable.ic_error)
+                }
             }
 
         }
