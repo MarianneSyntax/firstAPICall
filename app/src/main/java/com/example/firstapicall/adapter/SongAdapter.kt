@@ -13,7 +13,8 @@ import com.example.firstapicall.R
 import com.example.firstapicall.data.Repository
 import com.example.firstapicall.data.model.Song
 import com.example.firstapicall.ui.main.MainFragmentDirections
-import com.squareup.picasso.Picasso
+import coil.load
+
 
 class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
@@ -43,7 +44,7 @@ class SongAdapter() : RecyclerView.Adapter<SongAdapter.ItemViewHolder>() {
 
         holder.name.text = item.track
         holder.artist.text = item.artist
-        Picasso.get().load(item.artResource).into(holder.image)
+        holder.image.load(item.artResource)
 
         holder.songCard.setOnClickListener {
             holder.itemView.findNavController().navigate(MainFragmentDirections.actionMainFragmentToSongDetailFragment(item.track,item.artist,item.artResource))
